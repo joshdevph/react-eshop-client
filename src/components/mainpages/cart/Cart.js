@@ -25,7 +25,7 @@ function Cart() {
     },[cart])
 
     const addToCart = async (cart) =>{
-        await axios.patch('/user/addcart', {cart}, {
+        await axios.patch(`${process.env.REACT_APP_URL_API}/user/addcart`, {cart}, {
             headers: {Authorization: token}
         })
     }

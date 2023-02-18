@@ -16,7 +16,7 @@ function Register() {
     const registerSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post('/user/register', {...user})
+            await axios.post(`${process.env.REACT_APP_URL_API}/user/register`, {...user})
 
             localStorage.setItem('firstLogin', true)
             swal({
