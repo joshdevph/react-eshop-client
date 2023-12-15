@@ -12,7 +12,7 @@ function UserAPI(token) {
         if(token){
             const getUser = async () =>{
                 try {
-                    const res = await axios.get(`${process.env.REACT_APP_URL_API}/user/infor`, {
+                    const res = await axios.get(`/user/infor`, {
                         headers: {Authorization: token}
                     })
 
@@ -53,7 +53,7 @@ function UserAPI(token) {
                 icon: "success",
             });
 
-            await axios.patch(`${process.env.REACT_APP_URL_API}/user/addcart`, {cart: [...cart, {...product, quantity: 1}]}, {
+            await axios.patch(`/user/addcart`, {cart: [...cart, {...product, quantity: 1}]}, {
                 headers: {Authorization: token}
             })
 

@@ -7,7 +7,7 @@ function CategoriesAPI() {
 
     useEffect(() =>{
         const getCategories = async () =>{
-            const res = await axios.get(`${process.env.REACT_APP_URL_API}/api/category`)
+            const res = await axios.get(`/api/category`)
             setCategories(res.data)
         }
 

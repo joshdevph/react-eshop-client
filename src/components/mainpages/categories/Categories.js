@@ -17,7 +17,7 @@ function Categories() {
         e.preventDefault()
         try {
             if(onEdit){
-                const res = await axios.put(`${process.env.REACT_APP_URL_API}/api/category/${id}`, {name: category}, {
+                const res = await axios.put(`/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
                 swal({
@@ -26,7 +26,7 @@ function Categories() {
                     icon: "success",
                 });
             }else{
-                const res = await axios.post(`${process.env.REACT_APP_URL_API}/api/category`, {name: category}, {
+                const res = await axios.post(`/api/category`, {name: category}, {
                     headers: {Authorization: token}
                 })
                 swal({
@@ -63,7 +63,7 @@ function Categories() {
                 text: "Category deleted successfully",
                 icon: "success",
             });
-            const res = await axios.delete(`${process.env.REACT_APP_URL_API}/api/category/${id}`, {
+            const res = await axios.delete(`/api/category/${id}`, {
                 headers: {Authorization: token}
             })
 
