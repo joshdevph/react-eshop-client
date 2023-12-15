@@ -16,9 +16,10 @@ function Register() {
     const registerSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post(`${process.env.REACT_APP_URL_API}/user/register`, {...user})
+            var res = await axios.post(`${process.env.REACT_APP_URL_API}/user/register`, {...user})
 
             localStorage.setItem('firstLogin', true)
+            localStorage.setItem('refreshtoken', res.data.refreshtoken)
             swal({
                 title: `Welcome to, K A O N`,
                 text: "You have successfully registered",
