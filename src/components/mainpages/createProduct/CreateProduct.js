@@ -67,7 +67,7 @@ function CreateProduct() {
             formData.append('file', file)
 
             setLoading(true)
-            const res = await axios.post('/api/upload', formData, {
+            const res = await axios.post(`${process.env.REACT_APP_URL_API}/api/upload`, formData, {
                 headers: {'content-type': 'multipart/form-data', Authorization: token}
             })
             setLoading(false)
@@ -82,7 +82,7 @@ function CreateProduct() {
         try {
             if(!isAdmin) return alert("You're not an admin")
             setLoading(true)
-            await axios.post(`/api/destroy`, {public_id: images.public_id}, {
+            await axios.post(`${process.env.REACT_APP_URL_API}/api/destroy`, {public_id: images.public_id}, {
                 headers: {Authorization: token}
             })
             setLoading(false)
@@ -104,11 +104,11 @@ function CreateProduct() {
             if(!images) return alert("No Image Upload")
 
             if(onEdit){
-                await axios.put(`/api/products/${product._id}`, {...product, images}, {
+                await axios.put(`${process.env.REACT_APP_URL_API}/api/products/${product._id}`, {...product, images}, {
                     headers: {Authorization: token}
                 })
             }else{
-                await axios.post(`/api/products`, {...product, images}, {
+                await axios.post(`${process.env.REACT_APP_URL_API}/api/products`, {...product, images}, {
                     headers: {Authorization: token}
                 })
             }

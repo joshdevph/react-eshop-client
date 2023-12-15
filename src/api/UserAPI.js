@@ -12,7 +12,7 @@ function UserAPI(token) {
         if(token){
             const getUser = async () =>{
                 try {
-                    const res = await axios.get(`/user/infor`, {
+                    const res = await axios.get(`${process.env.REACT_APP_URL_API}/user/infor`, {
                         headers: {Authorization: token}
                     })
 
